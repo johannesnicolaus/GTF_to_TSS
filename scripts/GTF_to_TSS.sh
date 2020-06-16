@@ -4,7 +4,7 @@
 # example usage GTF_to_TSS.sh x.GTF y.bed
 
 # g is global (replaces all of semicolon)
-cat $1 | awk '$3 == "transcript"' | awk '$7 == "+"' | awk '{print $1, $5-1000, $5+1000, $10, $14}' | sed 's/ /\t/g' | sed 's/;//g' > gtf_forward.bed 
+cat $1 | awk '$3 == "transcript"' | awk '$7 == "+"' | awk '{print $1, $4-1000, $4+1000, $10, $14}' | sed 's/ /\t/g' | sed 's/;//g' > gtf_forward.bed 
 
 cat $1 | awk '$3 == "transcript"' | awk '$7 == "-"' | awk '{print $1, $5-1000, $5+1000, $10, $14}' | sed 's/ /\t/g' | sed 's/;//g' > gtf_reverse.bed
 
